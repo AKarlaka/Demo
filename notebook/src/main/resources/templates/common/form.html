@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+</head>
+<body>
+<div>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <td>序号</td>
+                <td>编码</td>
+                <td>名称</td>
+                <td>密码</td>
+                <td>权限码</td>
+                <td>创建时间</td>
+                <td>更新时间</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${userInfo}">
+                <td th:text="${user.userId}"></td>
+                <td th:text="${user.userCode}"></td>
+                <td th:text="${user.userName}"></td>
+                <td th:text="${user.userPwd}"></td>
+                <td th:text="${user.roleCode}"></td>
+                <td th:text="${user.createTime}"></td>
+                <td th:text="${user.updateTime}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

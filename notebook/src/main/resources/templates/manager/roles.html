@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>权限管理</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        a{
+            text-decoration: none;
+            cursor:pointer;
+            float: left;
+            width: 40%;
+        }
+        a:hover,a:active{
+            background-color:white;
+            font-weight: bolder;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div th:replace="common/header :: header"></div>
+    <hr/>
+
+    <div class="panel-body">
+        <div>
+            <h1>权限管理</h1>
+        </div>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>编码</td>
+                    <td>名称</td>
+                    <td>查看权</td>
+                    <td>删除权</td>
+                    <td>编辑权</td>
+                    <td>操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="role : ${roleInfos}">
+                    <td th:text="${role.roleId}"></td>
+                    <td th:text="${role.roleCode}"></td>
+                    <td th:text="${role.roleName}"></td>
+                    <td th:text="${role.funView}"></td>
+                    <td th:text="${role.funDelete}"></td>
+                    <td th:text="${role.funEdit}"></td>
+                    <td><a th:href="@{/role/edit(roleCode=${role.roleCode})}">编辑</a>&nbsp;
+                        <a th:href="@{/role/delete(roleCode=${role.roleCode})}">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

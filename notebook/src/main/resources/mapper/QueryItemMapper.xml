@@ -1,0 +1,11 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.choice.notebook.mapper.QueryItemMapper">
+    <!--查询角色列表-->
+    <select id="getItemsByTableName" resultType="com.choice.notebook.domain.QueryItem">
+        select id, table_name as tableName, field_type as fieldType, field_key as fieldKey, field_value as fieldValue
+        from base_query_items
+        where table_name = #{tableName}
+    </select>
+</mapper>

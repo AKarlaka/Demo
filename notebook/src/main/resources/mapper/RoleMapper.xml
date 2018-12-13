@@ -1,0 +1,61 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.choice.notebook.mapper.RoleMapper">
+    <!--字段-->
+    <sql id="fields">
+        role_id as roleId,
+        role_code as roleCode,
+        role_name as roleName,
+        fun_view as funView,
+        fun_delete as funDelete,
+        fun_edit as funEdit
+    </sql>
+
+    <!--查询角色列表-->
+    <select id="getRoles" resultType="com.choice.notebook.domain.Role">
+        select <include refid="fields"/>
+        from sys_role
+    </select>
+
+    <!--通过userCode查询权限-->
+    <select id="getRoleByCode" resultType="com.choice.notebook.domain.Role">
+        select <include refid="fields"/>
+        from sys_role
+        <where>
+            <if test="roleCode != null and roleCode != '' ">
+                and role_code=#{roleCode}
+            </if>
+            <if test="roleName != null and roleName != '' ">
+                and role_name=#{roleName}
+            </if>
+        </where>
+        order by role_id
+    </select>
+
+    <update id="update1">
+        update sys_role
+        set role_name = #{roleInfo.roleName},
+        fun_view = #{roleInfo.funView},
+        fun_delete = #{roleInfo.funDelete},
+        fun_edit = #{roleInfo.funEdit}
+        where role_code = #{roleInfo.roleCode}
+    </update>
+
+    <update id="update">
+        update sys_role
+        <set>
+            <if test="roleInfo != null">
+                role_name = #{roleInfo.roleName},
+                fun_view = #{roleInfo.funView},
+                fun_delete = #{roleInfo.funDelete},
+                fun_edit = #{roleInfo.funEdit}
+            </if>
+        </set>
+        where role_code = #{roleInfo.roleCode}
+    </update>
+
+    <delete id="delete">
+        delete from sys_role where role_code = #{roleCode}
+    </delete>
+</mapper>

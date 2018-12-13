@@ -1,0 +1,39 @@
+body{
+    background-color: darkgray;
+}
+div{
+    float: none;
+}
+
+table{
+    margin-top: 10px;
+}
+td{
+    background-color:#ffffff;
+    height:25px;
+    line-height:150%;
+}
+
+ul,li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul{
+    float: left;
+    background-color: cornflowerblue;
+}
+li{
+    float: left;
+}
+a:link,a:visited{
+    text-decoration: none;
+    text-align: center;
+    padding: 4px;
+    display: block;
+    width: 90px;
+    color: rgb(58, 57, 57);
+}
+a:hover,a:active{
+    background-color:rgb(108, 116, 128)
+}

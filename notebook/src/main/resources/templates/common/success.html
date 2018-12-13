@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>成功</title>
+    <style>
+        td{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<h5>登陆成功！</h5>
+<div>
+    <table>
+        <tr>
+            <td>角色ID：</td>
+            <td><input  th:value="${roleInfo.roleId}" type="text" name="roleId"/></td>
+        </tr>
+
+        <tr>
+            <td>角色编码：</td>
+            <td><input th:value="${roleInfo.roleCode}" type="text" name="roleCode"/></td>
+        </tr>
+
+        <tr>
+            <td>角色名称：</td>
+            <td><input th:value="${roleInfo.roleName}" type="text" name="roleName"/></td>
+        </tr>
+        <tr>
+            <td>查看权：</td>
+            <td><input th:checked="${roleInfo.funView}" type="checkbox" name="funView"/></td>
+            <td th:text="${roleInfo.funView}"></td>
+        </tr>
+        <tr>
+            <td>删除权：</td>
+            <td><input th:checked="${roleInfo.funDelete}" type="checkbox" name="funDelete"/></td>
+            <td th:text="${roleInfo.funDelete}"></td>
+        </tr>
+        <tr>
+            <td>编辑权：</td>
+            <td><input th:checked="${roleInfo.funEdit}" type="checkbox" name="funEdit"/></td>
+            <td th:text="${roleInfo.funEdit}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

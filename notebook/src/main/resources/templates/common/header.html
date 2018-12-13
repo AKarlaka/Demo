@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Header</title>
+    <link type="text/css" rel="stylesheet" th:href="@{../css/style.css}">
+</head>
+<body>
+<div>
+    <div data-th-fragment="header">
+        <div>
+            <ul style="align-content: center">
+                <li><a href="/index/index">首页</a></li>
+                <li><a th:href=@{/user/list}>用户管理</a></li>
+                <li><a th:href=@{/role/list}>权限管理</a></li>
+                <li><a href="#">日志</a></li>
+                <li><a th:href=@{/index/login}>登陆</a></li>
+                <li><a href="#">帮助</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-th-fragment="search">
+        <br/>
+        <div style="float: left;">
+            <form th:action="@{/user/query}" method="post">
+                <label th:each="item : ${itemList}" th:title="${item.fieldValue}" style="float: left;">
+                    <input th:type="${item.fieldType}" th:name="${item.fieldKey}" th:placeholder="${item.fieldValue}" style="float: left"/>
+                </label>
+                <input type="submit" name="btnPut" value="查询"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

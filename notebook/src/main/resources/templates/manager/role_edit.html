@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑角色</title>
+</head>
+<body>
+<div>
+    <div>
+        <form th:action="@{/role/update}" method="post">
+            <table>
+                <tr>
+                    <td>角色ID：</td>
+                    <td><input  th:value="${roleInfo.roleId}" type="text" name="roleId"/></td>
+                </tr>
+
+                <tr>
+                    <td>角色编码：</td>
+                    <td><input th:value="${roleInfo.roleCode}" type="text" name="roleCode"/></td>
+                </tr>
+
+                <tr>
+                    <td>角色名称：</td>
+                    <td><input th:value="${roleInfo.roleName}" type="text" name="roleName"/></td>
+                </tr>
+                <tr>
+                    <td>查看权：</td>
+                    <td><input th:checked="${roleInfo.funView}" type="checkbox" name="funView"/></td>
+                    <td th:text="${roleInfo.funView}"></td>
+                </tr>
+                <tr>
+                    <td>删除权：</td>
+                    <td><input th:checked="${roleInfo.funDelete}" type="checkbox" name="funDelete"/></td>
+                    <td th:text="${roleInfo.funDelete}"></td>
+                </tr>
+                <tr>
+                    <td>编辑权：</td>
+                    <td><input th:checked="${roleInfo.funEdit}" type="checkbox" name="funEdit"/></td>
+                    <td th:text="${roleInfo.funEdit}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" name="btnSave" value="提交"/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>

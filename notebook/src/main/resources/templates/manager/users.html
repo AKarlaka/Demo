@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div>
+    <div th:replace="common/header :: header"></div>
+    <hr/>
+    <div th:replace="common/header :: search"></div>
+    <div class="panel-body">
+        <div>
+            <h1 style="text-align: center">用户管理</h1>
+        </div>
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <td>序号</td>
+                    <td>编码</td>
+                    <td>名称</td>
+                    <td>密码</td>
+                    <td>权限码</td>
+                    <td>创建时间</td>
+                    <td>更新时间</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${userInfos}">
+                    <td th:text="${user.userId}"></td>
+                    <td th:text="${user.userCode}"></td>
+                    <td th:text="${user.userName}"></td>
+                    <td th:text="${user.userPwd}"></td>
+                    <td th:text="${user.roleCode}"></td>
+                    <td th:text="${user.createTime}"></td>
+                    <td th:text="${user.updateTime}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.choice.notebook.mapper.UserMapper">
+    <!--
+        1、com.choice.notebook.domain.User:怎么简写？
+        2、resultType返回是Map或者List时怎么使用？
+        3、Update、Insert、Delete返回类型时什么？怎么返回对应的ID？怎么表示成功？怎么表示失败？
+        4、怎么设置Sql语句的关键词高亮？
+        5、
+    -->
+
+    <select id="getUsers" resultType="com.choice.notebook.domain.User">
+        select user_id as userId,
+        user_code as userCode,
+        user_name as userName,
+        user_pwd as userPwd,
+        role_code as roleCode,
+        create_time as createTime,
+        update_time as updateTime
+        from sys_user
+    </select>
+
+    <select id="getUserByCode" resultType="com.choice.notebook.domain.User">
+        select user_id as userId,
+        user_code as userCode,
+        user_name as userName,
+        user_pwd as userPwd,
+        role_code as roleCode,
+        create_time as createTime,
+        update_time as updateTime
+        from sys_user where user_code=#{userCode}
+    </select>
+
+    <select id="getUserByRoleCode" resultType="com.choice.notebook.domain.User">
+        select user_id as userId,
+        user_code as userCode,
+        user_name as userName,
+        user_pwd as userPwd,
+        role_code as roleCode,
+        create_time as createTime,
+        update_time as updateTime
+        from sys_user where role_code=#{roleCode}
+    </select>
+
+    <select id="query" resultType="com.choice.notebook.domain.User">
+        select user_id as userId,
+        user_code as userCode,
+        user_name as userName,
+        user_pwd as userPwd,
+        role_code as roleCode,
+        create_time as createTime,
+        update_time as updateTime
+        from sys_user
+        where user_name like CONCAT('%','${userName}','%')
+    </select>
+
+
+</mapper>
