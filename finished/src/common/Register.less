@@ -1,0 +1,126 @@
+@import "~antd/lib/style/themes/default.less";
+
+.main {
+  width: 368px;
+  margin: 40px auto;
+
+  :global {
+    .ant-form-item {
+      margin-bottom: 24px;
+    }
+  }
+
+  h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .getCaptcha {
+    display: block;
+    width: 100%;
+  }
+
+  .submit {
+    width: 50%;
+  }
+
+  .login {
+    float: right;
+    line-height: @btn-height-lg;
+  }
+}
+
+.success,
+.warning,
+.error {
+  transition: color 0.3s;
+}
+
+.success {
+  color: @success-color;
+}
+
+.warning {
+  color: @warning-color;
+}
+
+.error {
+  color: @error-color;
+}
+
+.progress-pass > .progress {
+  :global {
+    .ant-progress-bg {
+      background-color: @warning-color;
+    }
+  }
+}
+
+.registerResult {
+  :global {
+    .anticon {
+      font-size: 64px;
+    }
+  }
+  .title {
+    margin-top: 32px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .actions {
+    margin-top: 40px;
+    a + a {
+      margin-left: 8px;
+    }
+  }
+}
+.result {
+  text-align: center;
+  width: 72%;
+  margin: 0 auto;
+
+  .icon {
+    font-size: 72px;
+    line-height: 72px;
+    margin-bottom: 24px;
+
+    & > .success {
+      color: @success-color;
+    }
+
+    & > .error {
+      color: @error-color;
+    }
+  }
+
+  .title {
+    font-size: 24px;
+    color: @heading-color;
+    font-weight: 500;
+    line-height: 32px;
+    margin-bottom: 16px;
+    margin-top: 30px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 22px;
+    color: @text-color-secondary;
+    margin-bottom: 24px;
+  }
+
+  .extra {
+    background: #fafafa;
+    padding: 24px 40px;
+    border-radius: @border-radius-sm;
+    text-align: left;
+  }
+
+  .actions {
+    margin-top: 32px;
+
+    button:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
